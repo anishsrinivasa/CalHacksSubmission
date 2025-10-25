@@ -1,136 +1,306 @@
-# SOW Analyzer Backend
+# 🔍 SOW Analyzer
 
-AI-powered analysis of government contract Statements of Work (SOWs).
+AI-powered analysis tool for government contract Statements of Work (SOWs). Detects waste, weak KPIs, scope creep, and missing critical elements.
 
-## Setup
+![Status](https://img.shields.io/badge/status-ready%20to%20deploy-green)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-### 1. Install Dependencies
+## 🎯 Problem Statement
+
+Government agencies waste billions annually on:
+- **Duplicate contracts**: Multiple agencies buying the same services without coordination
+- **Weak KPIs**: Vague metrics like "improve satisfaction" without measurable targets
+- **Scope creep**: Open-ended language leading to budget overruns
+- **Missing elements**: Lack of acceptance criteria, assumptions, or success metrics
+
+## 💡 Solution
+
+An AI-powered web application that analyzes SOW documents to:
+1. ✅ Extract structured data (tasks, KPIs, deliverables, metadata)
+2. ✅ Identify weak or unmeasurable KPIs
+3. ✅ Flag scope creep language and red flags
+4. ✅ Detect missing critical elements
+5. 🚧 Generate SMART KPI alternatives (Phase 3)
+6. 🚧 Compare across contracts for duplication (Phase 4)
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐         ┌─────────────────┐
+│   Next.js       │  HTTPS  │   FastAPI       │
+│   Frontend      │ ◄─────► │   Backend       │
+│   (Vercel)      │         │   (Railway)     │
+└─────────────────┘         └────────┬────────┘
+                                     │
+                                     ▼
+                            ┌─────────────────┐
+                            │  Claude API     │
+                            │  (Anthropic)    │
+                            └─────────────────┘
+```
+
+### Tech Stack
+
+**Backend:**
+- Python 3.12
+- FastAPI for REST API
+- Anthropic Claude API (Haiku model)
+- PyMuPDF (PDF parsing)
+- python-docx (DOCX parsing)
+
+**Frontend:**
+- Next.js 15
+- React 18
+- TypeScript
+- Tailwind CSS
+- Axios for API calls
+
+**Deployment:**
+- Backend: Railway (https://railway.app)
+- Frontend: Vercel (https://vercel.com)
+
+## 🚀 Features
+
+### Current (MVP)
+
+- **File Upload**: Drag-and-drop interface for PDF, DOCX, TXT files
+- **Data Extraction**: Automatically extracts:
+  - Contract metadata (ID, contractor, value, dates)
+  - Objectives and tasks
+  - KPIs and deliverables
+  - Scope and personnel requirements
+- **Risk Analysis**: Identifies:
+  - Weak KPIs (missing targets, baselines, timelines)
+  - Scope creep language
+  - Missing critical elements
+  - Red flags and inconsistencies
+- **Beautiful Dashboard**: Color-coded severity levels, downloadable results
+
+### Coming Soon
+
+- **SMART KPI Generator**: AI-generated specific, measurable alternatives
+- **Cross-Contract Analysis**: Detect duplicate or overlapping work
+- **Batch Processing**: Analyze multiple SOWs at once
+- **Historical Comparison**: Track improvements over time
+
+## 📁 Project Structure
+
+```
+calhacks/
+├── backend/                 # FastAPI backend
+│   ├── main.py             # Main API server
+│   ├── sow_extractor.py    # Pass 1: Data extraction
+│   ├── risk_analyzer.py    # Pass 2: Risk analysis
+│   ├── requirements.txt    # Python dependencies
+│   ├── railway.json        # Railway deployment config
+│   └── .env.example        # Environment variable template
+│
+├── frontend/               # Next.js frontend
+│   ├── app/
+│   │   ├── page.tsx       # Main page
+│   │   ├── layout.tsx     # Root layout
+│   │   └── globals.css    # Global styles
+│   ├── components/
+│   │   ├── FileUpload.tsx      # Upload interface
+│   │   └── ResultsDashboard.tsx # Results display
+│   ├── package.json       # Node dependencies
+│   ├── next.config.js     # Next.js configuration
+│   └── vercel.json        # Vercel deployment config
+│
+└── DEPLOYMENT.md          # Deployment guide
+```
+
+## 🔧 Local Development
+
+### Prerequisites
+
+- Python 3.12+
+- Node.js 18+
+- Anthropic API key ([Get one here](https://console.anthropic.com/))
+
+### Backend Setup
 
 ```bash
 cd backend
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Create .env file
+echo "ANTHROPIC_API_KEY=your-key-here" > .env
+
+# Run server
+uvicorn main:app --reload --port 8000
 ```
 
-### 2. Configure API Key
+Backend will be available at: http://localhost:8000
 
-Copy `.env.example` to `.env`:
+### Frontend Setup
 
 ```bash
-cp .env.example .env
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-Edit `.env` and add your Anthropic API key:
+Frontend will be available at: http://localhost:3000
 
-```
-ANTHROPIC_API_KEY=sk-ant-...
-```
+## 🌐 Deployment
 
-Get your API key from: https://console.anthropic.com/
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
-## Usage
+**Quick Summary:**
 
-### Extract SOW Data
+1. **Deploy Backend to Railway**
+   - Push to GitHub
+   - Connect repo to Railway
+   - Add `ANTHROPIC_API_KEY` environment variable
+   - Get backend URL
 
-Extract structured data from a SOW document (PDF, DOCX, or TXT):
+2. **Deploy Frontend to Vercel**
+   - Connect GitHub repo to Vercel
+   - Set `NEXT_PUBLIC_API_URL` to Railway backend URL
+   - Deploy
+
+## 📊 Cost Analysis
+
+| Service | Free Tier | Usage |
+|---------|-----------|-------|
+| Railway | $5/month credit | Backend hosting |
+| Vercel | Unlimited deploys | Frontend hosting |
+| Claude API | Pay per use | ~$0.02-0.05 per analysis |
+
+**Total**: Free for <100 analyses/month
+
+## 🧪 Testing
+
+### Test with Sample SOW
 
 ```bash
-python sow_extractor.py <path_to_sow_file>
+cd backend
+# Sample NYSERDA SOW included in sample_nyserda_sow.txt
 ```
 
-**Example:**
+Upload this file through the UI or test API directly:
+
 ```bash
-python sow_extractor.py sample_nyserda_sow.txt
+curl -X POST http://localhost:8000/api/analyze \
+  -F "file=@sample_nyserda_sow.txt"
 ```
 
-**Output:**
-- Creates `<filename>_extracted.json` with structured data
-- Prints summary to console
+### Expected Results
 
-**Supported formats:**
-- PDF (`.pdf`)
-- Word (`.docx`)
-- Plain text (`.txt`)
+The analyzer should find:
+- 14+ issues total
+- Weak KPIs like "reduce processing time to target levels"
+- Scope creep: "ongoing support as needed"
+- Missing elements: specific acceptance criteria
 
-### What Pass 1 Extracts
+## 🎓 How It Works
 
-- ✅ Contract metadata (ID, contractor, value, duration)
-- ✅ Background and objectives
-- ✅ All tasks with descriptions, deliverables, schedules
-- ✅ KPIs and performance metrics
-- ✅ Deliverables list
-- ✅ Scope boundaries
-- ✅ Personnel requirements
-- ✅ Security, travel, reporting requirements
+### Pass 1: Extraction
+- Uses Claude API to extract structured data from raw SOW text
+- Identifies: metadata, tasks, KPIs, deliverables, scope
+- Returns: JSON with all extracted fields
 
-### Example Output
+### Pass 2: Risk Analysis
+- Analyzes extracted data for issues
+- Categories: weak KPIs, scope creep, missing elements, red flags
+- Assigns severity: HIGH, MEDIUM, LOW
 
+### Pass 3: Enhancement (Coming Soon)
+- Generates SMART alternatives for weak KPIs
+- Provides specific, measurable, achievable recommendations
+
+### Pass 4: Overlap Detection (Coming Soon)
+- Compares across multiple SOWs
+- Identifies duplicate or overlapping work
+- Calculates potential savings
+
+## 🛠️ API Documentation
+
+### POST /api/analyze
+
+Upload and analyze a SOW document.
+
+**Request:**
+```
+POST /api/analyze
+Content-Type: multipart/form-data
+
+file: <PDF/DOCX/TXT file>
+```
+
+**Response:**
 ```json
 {
-  "metadata": {
-    "contract_id": "ABC-2024-001",
-    "contractor": "Acme Consulting",
-    "project_title": "IT Modernization Project",
-    "value": "$5,000,000",
-    "duration": "24 months"
+  "success": true,
+  "filename": "contract.pdf",
+  "contract_id": "SOW-2024-001",
+  "contractor": "Example Corp",
+  "summary": {
+    "total_findings": 14,
+    "high_severity": 3,
+    "medium_severity": 7,
+    "low_severity": 4,
+    "tasks_found": 8,
+    "kpis_found": 12
   },
-  "objectives": [
-    {
-      "text": "Modernize the permit processing system",
-      "reference": "Section 1.1, Page 3",
-      "confidence": "high"
-    }
-  ],
-  "tasks": [
-    {
-      "task_id": "Task 1",
-      "title": "System Design",
-      "description": "The Contractor shall design a new cloud-based permit system...",
-      "deliverables": ["System Architecture Document", "Design Mockups"],
-      "schedule": "Month 3",
-      "reference": "Section 2.1, Page 5",
-      "confidence": "high"
-    }
-  ],
-  "kpis": [
-    {
-      "text": "Improve citizen satisfaction",
-      "measures": "User satisfaction",
-      "target": null,
-      "baseline": null,
-      "timeframe": null,
-      "measurement_method": null,
-      "reference": "Section 4.1, Page 10",
-      "confidence": "medium"
-    }
-  ]
+  "extracted_data": { ... },
+  "analysis": {
+    "weak_kpis": [...],
+    "scope_creep": [...],
+    "missing_elements": [...],
+    "red_flags": [...]
+  }
 }
 ```
 
-## Coming Soon
+### GET /
 
-- **Pass 2:** Individual document analysis (weak KPIs, scope creep, red flags)
-- **Pass 3:** SMART KPI suggestions
-- **Pass 4:** Cross-document overlap detection
+Health check endpoint.
 
-## Cost
+**Response:**
+```json
+{
+  "status": "online",
+  "service": "SOW Analyzer API",
+  "version": "1.0.0"
+}
+```
 
-Pass 1 uses Claude 3.5 Sonnet:
-- **~$0.10-0.15** per 20-page SOW
-- Input: $3/million tokens
-- Output: $15/million tokens
+## 🤝 Contributing
 
-## Troubleshooting
+This is a hackathon project. Contributions welcome!
 
-**"ANTHROPIC_API_KEY not found"**
-- Make sure `.env` file exists in `/backend/` directory
-- Check that your API key is correct
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-**"Unsupported file type"**
-- Only PDF, DOCX, and TXT files are supported
-- Make sure file extension matches file format
+## 📝 License
 
-**JSON parsing error**
-- The AI response may not be valid JSON
-- Check console output for the raw response
-- Try running again (occasionally happens with very large documents)
-# Calhacks
+MIT License - see LICENSE file for details
+
+## 🙏 Acknowledgments
+
+- Built with [Claude AI](https://anthropic.com) by Anthropic
+- Frontend powered by [Next.js](https://nextjs.org)
+- Backend powered by [FastAPI](https://fastapi.tiangolo.com)
+- Deployed on [Railway](https://railway.app) and [Vercel](https://vercel.com)
+
+## 📧 Contact
+
+For questions or feedback, please open an issue on GitHub.
+
+---
+
+Built to detect waste and improve government contracting 🏛️
