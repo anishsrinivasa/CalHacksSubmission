@@ -1,0 +1,26 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Output files
+*_extracted.json
+*_analysis.json
+
+# Debug/temp files
+debug_*.txt
+debug_*.json
+
+# Test files
+test_*.pdf
+test_*.docx
+test_*.txt
+sample_*.pdf
+sample_*.docx

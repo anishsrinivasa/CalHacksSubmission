@@ -1,0 +1,168 @@
+EXHIBIT A
+STATEMENT OF WORK
+
+IT Modernization Project
+Acme Technology Solutions
+Project Number 2024-IT-001
+
+
+BACKGROUND/OBJECTIVES
+
+The City of Springfield's permit processing system is outdated and inefficient, causing delays in processing building permits and frustration among citizens and contractors. Current average processing time is 14 business days, and citizen satisfaction scores average 3.2 out of 5.0 based on the 2023 annual survey. The system runs on legacy infrastructure that is difficult to maintain and does not support mobile access.
+
+The Contractor intends to modernize the permit processing system by implementing a cloud-based platform with mobile access, migrating all legacy permit data, and training staff on the new system. This modernization will improve processing times, increase citizen satisfaction, and reduce operational costs.
+
+DEFINITIONS
+
+The Contractor is defined as:
+Acme Technology Solutions
+John Smith, Project Manager
+123 Tech Street
+Springfield, State 12345
+Email: jsmith@acmetech.com / Phone: 555-0100
+
+The Project Site(s) is/are defined as:
+City of Springfield IT Department
+456 Government Plaza
+Springfield, State 12345
+
+Subcontractor(s) is/are defined as:
+DataMigration Specialists LLC
+789 Data Drive
+Springfield, State 12345
+
+TASK 0 - PROJECT MANAGEMENT AND PROGRESS REPORTING
+
+Responsibility
+Regardless of subcontracting arrangements, the Contractor shall be responsible for the timely completion of all the tasks in the Statement of Work per the schedule included herein. The Contractor shall provide all project management activities necessary for the performance of this Statement of Work, which shall include the following activities:
+
+- Coordinate the work of the Contractor's employees and those of sub-contractors
+- Ensure control over the project budget and adherence to the project schedule
+- Provide all project reporting to the City as specified in this Statement of Work
+
+Subcontract(s)
+The Contractor shall enter into an agreement with DataMigration Specialists LLC to perform work in the area of legacy data migration and data quality assurance.
+
+Progress Reporting
+The Contractor shall submit quarterly progress reports to the City's Project Manager no later than the 15th of the month following each reporting period. The Progress Reports shall include:
+a. Name of contractor
+b. Title of the project
+c. Agreement number
+d. Reporting period
+e. Project progress including summary of findings and results
+f. Planned work for the next reporting period
+g. Identification of problems
+h. Proposed solutions to identified problems
+i. Ability to meet schedule
+j. Schedule - percentage completed by calendar quarter
+k. Budget analysis of actual costs incurred
+
+Deliverables: Written Quarterly Progress Reports.
+
+Project Kick-off Meeting
+The Contractor shall hold a project kick-off meeting within thirty days from the contract execution date. The purpose of this meeting shall be to finalize strategies for accomplishing the objectives of this work.
+
+Deliverable: Brief report regarding the project kickoff meeting.
+
+Project Completion Meeting
+The Contractor shall conduct a project completion meeting within 15 days following submission of the draft Final Report.
+
+Annual Metrics Reports
+On an annual basis, the Contractor shall submit analysis and summary of metrics addressing the anticipated benefits realized by the project. Reporting shall commence the first calendar year after contract execution. Reports shall be submitted by January 31st.
+
+TASK 1 - SYSTEM REQUIREMENTS AND DESIGN
+
+The Contractor shall conduct a comprehensive requirements gathering process to identify all functional and technical requirements for the new permit processing system. The Contractor shall interview key stakeholders, review current workflows, and document all requirements.
+
+The Contractor shall design a cloud-based permit system architecture that supports mobile access and integrates with existing City systems. The design shall include user interface mockups, database schemas, and system integration specifications.
+
+Task 1 Deliverable: System Requirements Document and System Architecture Design Document.
+
+Task 1 Schedule: Months 1-3 from Effective Date.
+
+TASK 2 - SYSTEM DEVELOPMENT AND IMPLEMENTATION
+
+The Contractor shall develop the new permit processing system based on the approved design from Task 1. The system shall include online permit applications, automated workflow routing, payment processing, and real-time status tracking for applicants.
+
+The Contractor shall implement the system in a staged approach, beginning with a pilot deployment to one department, followed by full deployment to all departments.
+
+The Contractor shall provide ongoing support as needed during the implementation phase to address any technical issues.
+
+Task 2 Deliverable: Fully functional cloud-based permit system deployed to production environment.
+
+Task 2 Schedule: Months 4-15 from Effective Date.
+
+TASK 3 - DATA MIGRATION
+
+The Contractor shall work with Subcontractor DataMigration Specialists LLC to migrate all legacy permit data to the new system. This includes approximately 500,000 permit records dating back to 1995.
+
+The Contractor shall ensure data quality and accuracy through validation procedures and provide a data migration report documenting the process and any issues encountered.
+
+Task 3 Deliverable: Migrated permit database and Data Migration Report.
+
+Task 3 Schedule: Months 10-14 from Effective Date.
+
+TASK 4 - TRAINING AND CHANGE MANAGEMENT
+
+The Contractor shall develop comprehensive training materials for City staff, including user guides, video tutorials, and quick reference cards.
+
+The Contractor shall conduct training sessions for all City staff who will use the new system. Training shall be provided in multiple formats including in-person workshops and online webinars.
+
+The Contractor shall provide reasonable assistance with change management activities to ensure smooth adoption of the new system.
+
+Task 4 Deliverable: Training materials and Training completion report documenting all sessions conducted.
+
+Task 4 Schedule: Months 12-18 from Effective Date.
+
+TASK 5 - PERFORMANCE MONITORING AND OPTIMIZATION
+
+The Contractor shall establish performance metrics and monitoring dashboards to track system performance, including processing times, system uptime, and user satisfaction.
+
+The Contractor shall improve system efficiency based on performance data collected during the first six months of operation.
+
+Task 5 Deliverable: Performance Monitoring Dashboard and Optimization Report.
+
+Task 5 Schedule: Months 16-24 from Effective Date.
+
+TASK 6 - FINAL REPORT
+
+Upon completion of the contract period, the Contractor shall prepare a Final Report covering all aspects of work performed under this Agreement. The report shall include:
+- Discussions of observations, findings, and recommendations
+- Project results and lessons learned
+- Configuration details and system capabilities
+- Benefits achieved and implementation scenarios
+
+Draft Version and Final Version of Final Report: A draft version shall be submitted by Month 23. The City will comment within 60 working days. The Contractor shall prepare a final version within 30 working days after receipt of comments and submit two paper copies and one electronic copy.
+
+Deliverables: Draft Final Report and Final Version of Final Report.
+
+MILESTONE SCHEDULE
+
+Task 0 - Project Management: Months 1-24 (ongoing)
+Task 1 - Requirements & Design: Months 1-3
+Task 2 - Development: Months 4-15
+Task 3 - Data Migration: Months 10-14
+Task 4 - Training: Months 12-18
+Task 5 - Performance Monitoring: Months 16-24
+Task 6 - Final Report: Month 23-24
+
+CONTRACT DETAILS
+
+Total Contract Value: $5,000,000
+Period of Performance: 24 months from date of execution
+Progress Reporting: Quarterly
+Annual Metrics: Due January 31st annually
+
+PERFORMANCE METRICS
+
+The following performance metrics shall be tracked:
+
+1. Permit Processing Time: Reduce average processing time from current 14 business days to target levels within 18 months.
+
+2. System Uptime: Achieve system availability during business hours.
+
+3. User Satisfaction: Improve citizen satisfaction with the permit process.
+
+4. Staff Training: Complete training for all relevant City staff.
+
+5. Data Migration: Successfully migrate legacy permit records with acceptable accuracy rate.
