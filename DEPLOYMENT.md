@@ -181,11 +181,11 @@ Both Railway and Vercel support GitHub integration for automatic deployments:
 6. Done! Your app is live
 
 ### Benefits of GitHub Integration:
-- ✅ Automatic deployments on every push
-- ✅ Preview deployments for pull requests
-- ✅ Easy rollbacks to previous versions
-- ✅ Team collaboration
-- ✅ CI/CD pipeline built-in
+- Automatic deployments on every push
+- Preview deployments for pull requests
+- Easy rollbacks to previous versions
+- Team collaboration
+- CI/CD pipeline built-in
 
 ## Cost Estimates
 

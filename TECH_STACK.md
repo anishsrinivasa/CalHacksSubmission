@@ -101,7 +101,7 @@ API:          Will call Python backend via REST
 │  ├─ Next.js Frontend (pages/)                   │
 │  └─ Python Backend (api/)                       │
 │     - Vercel Serverless Functions               │
-│     - 10 second timeout ⚠️                      │
+│     - 10 second timeout (WARNING)               │
 └──────────────┬──────────────────────────────────┘
                │
                ▼
@@ -153,19 +153,19 @@ API:          Will call Python backend via REST
 
 ```
 ╔═══════════════════════════════════════════════════════════╗
-║  🔍 Procurement SOW Analyzer                              ║
+║  Procurement SOW Analyzer                                 ║
 ╠═══════════════════════════════════════════════════════════╣
 ║                                                           ║
-║  📄 Upload SOW Documents                                  ║
+║  Upload SOW Documents                                     ║
 ║  ┌─────────────────────────────────────────────────┐     ║
 ║  │  Drag & drop PDF or DOCX files here             │     ║
 ║  │  or click to browse                              │     ║
 ║  └─────────────────────────────────────────────────┘     ║
 ║                                                           ║
-║  📋 Uploaded Files:                                       ║
-║  ├─ Contract_ABC-2024-001.pdf (2.3 MB) ✓                 ║
-║  ├─ Contract_ABC-2024-002.pdf (1.8 MB) ✓                 ║
-║  └─ Contract_ABC-2024-003.docx (890 KB) ✓                ║
+║  Uploaded Files:                                          ║
+║  ├─ Contract_ABC-2024-001.pdf (2.3 MB)                   ║
+║  ├─ Contract_ABC-2024-002.pdf (1.8 MB)                   ║
+║  └─ Contract_ABC-2024-003.docx (890 KB)                  ║
 ║                                                           ║
 ║  [Analyze Contracts] →                                    ║
 ║                                                           ║
@@ -174,18 +174,18 @@ API:          Will call Python backend via REST
 After analysis:
 
 ╔═══════════════════════════════════════════════════════════╗
-║  📊 Analysis Results                                      ║
+║  Analysis Results                                         ║
 ╠═══════════════════════════════════════════════════════════╣
 ║                                                           ║
 ║  Contract: ABC-2024-001 ($5M, 24 months)                  ║
 ║                                                           ║
-║  ⚠️  14 Issues Found                                      ║
-║  ├─ 🔴 1 High      ├─ 🟡 10 Medium    ├─ 🟢 3 Low        ║
+║  14 Issues Found                                          ║
+║  ├─ 1 High      ├─ 10 Medium    ├─ 3 Low                 ║
 ║                                                           ║
 ║  ━━━ Weak KPIs (2) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
 ║  • "System Uptime: during business hours"                 ║
 ║    Missing: baseline, target, timeframe, method           ║
-║    💡 Suggestion: "Achieve 99.5% uptime during business   ║
+║    Suggestion: "Achieve 99.5% uptime during business      ║
 ║       hours (8am-6pm ET), measured via monitoring..."     ║
 ║                                                           ║
 ║  ━━━ Scope Creep (2) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ║
@@ -204,8 +204,8 @@ After analysis:
 ```
 /calhacks/
 ├── backend/                    # Python backend
-│   ├── sow_extractor.py       # Pass 1 ✅
-│   ├── risk_analyzer.py       # Pass 2 ✅
+│   ├── sow_extractor.py       # Pass 1
+│   ├── risk_analyzer.py       # Pass 2
 │   ├── kpi_enhancer.py        # Pass 3 (TODO)
 │   ├── overlap_detector.py    # Pass 4 (TODO)
 │   ├── requirements.txt
@@ -232,23 +232,23 @@ After analysis:
 ## Next Steps
 
 ### Phase 1: Complete Backend (This Week)
-- ✅ Pass 1: Extraction
-- ✅ Pass 2: Risk Analysis
-- ⏳ Pass 3: KPI Enhancement
-- ⏳ Pass 4: Overlap Detection
-- ⏳ FastAPI wrapper for web endpoints
+- Pass 1: Extraction
+- Pass 2: Risk Analysis
+- Pass 3: KPI Enhancement
+- Pass 4: Overlap Detection
+- FastAPI wrapper for web endpoints
 
 ### Phase 2: Build Frontend (Next Week)
-- ⏳ File upload component
-- ⏳ Results dashboard
-- ⏳ Overlap visualization
-- ⏳ PDF report generation
+- File upload component
+- Results dashboard
+- Overlap visualization
+- PDF report generation
 
 ### Phase 3: Deploy (After Testing)
-- ⏳ Deploy backend to Railway
-- ⏳ Deploy frontend to Vercel
-- ⏳ Connect with environment variables
-- ⏳ Test end-to-end
+- Deploy backend to Railway
+- Deploy frontend to Vercel
+- Connect with environment variables
+- Test end-to-end
 
 ---
 

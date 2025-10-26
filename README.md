@@ -1,11 +1,11 @@
-# 🔍 SOW Analyzer
+# SOW Analyzer
 
 AI-powered analysis tool for government contract Statements of Work (SOWs). Detects waste, weak KPIs, scope creep, and missing critical elements.
 
 ![Status](https://img.shields.io/badge/status-ready%20to%20deploy-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-## 🎯 Problem Statement
+## Problem Statement
 
 Government agencies waste billions annually on:
 - **Duplicate contracts**: Multiple agencies buying the same services without coordination
@@ -13,17 +13,17 @@ Government agencies waste billions annually on:
 - **Scope creep**: Open-ended language leading to budget overruns
 - **Missing elements**: Lack of acceptance criteria, assumptions, or success metrics
 
-## 💡 Solution
+## Solution
 
 An AI-powered web application that analyzes SOW documents to:
-1. ✅ Extract structured data (tasks, KPIs, deliverables, metadata)
-2. ✅ Identify weak or unmeasurable KPIs
-3. ✅ Flag scope creep language and red flags
-4. ✅ Detect missing critical elements
-5. 🚧 Generate SMART KPI alternatives (Phase 3)
-6. 🚧 Compare across contracts for duplication (Phase 4)
+1. Extract structured data (tasks, KPIs, deliverables, metadata)
+2. Identify weak or unmeasurable KPIs
+3. Flag scope creep language and red flags
+4. Detect missing critical elements
+5. Generate SMART KPI alternatives (Phase 3)
+6. Compare across contracts for duplication (Phase 4)
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐         ┌─────────────────┐
@@ -59,7 +59,7 @@ An AI-powered web application that analyzes SOW documents to:
 - Backend: Railway (https://railway.app)
 - Frontend: Vercel (https://vercel.com)
 
-## 🚀 Features
+## Features
 
 ### Current (MVP)
 
@@ -83,7 +83,7 @@ An AI-powered web application that analyzes SOW documents to:
 - **Batch Processing**: Analyze multiple SOWs at once
 - **Historical Comparison**: Track improvements over time
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 calhacks/
@@ -113,7 +113,7 @@ calhacks/
 └── chroma_db/              # Vector database storage
 ```
 
-## 🔧 Local Development
+## Local Development
 
 ### Prerequisites
 
@@ -153,7 +153,7 @@ npm run dev
 
 Frontend will be available at: http://localhost:3000
 
-## 🌐 Deployment
+## Deployment
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
@@ -170,7 +170,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
    - Set `NEXT_PUBLIC_API_URL` to Railway backend URL
    - Deploy
 
-## 📊 Cost Analysis
+## Cost Analysis
 
 | Service | Free Tier | Usage |
 |---------|-----------|-------|
@@ -180,7 +180,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 **Total**: Free for <100 analyses/month
 
-## 🧪 Testing
+## Testing
 
 ### Test with Sample SOW
 
@@ -199,7 +199,7 @@ The analyzer should find:
 - Scope creep: "ongoing support as needed"
 - Missing elements: specific acceptance criteria
 
-## 🎓 How It Works
+## How It Works
 
 ### Pass 1: Extraction
 - Uses Claude API to extract structured data from raw SOW text
@@ -220,7 +220,7 @@ The analyzer should find:
 - Identifies duplicate or overlapping work
 - Calculates potential savings
 
-## 🛠️ API Documentation
+## API Documentation
 
 ### POST /api/analyze
 
@@ -272,7 +272,7 @@ Health check endpoint.
 }
 ```
 
-## 🤝 Contributing
+## Contributing
 
 This is a hackathon project. Contributions welcome!
 
@@ -281,21 +281,21 @@ This is a hackathon project. Contributions welcome!
 3. Make your changes
 4. Submit a pull request
 
-## 📝 License
+## License
 
 MIT License - see LICENSE file for details
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [Claude AI](https://anthropic.com) by Anthropic
 - Frontend powered by [Next.js](https://nextjs.org)
 - Backend powered by [FastAPI](https://fastapi.tiangolo.com)
 - Deployed on [Railway](https://railway.app) and [Vercel](https://vercel.com)
 
-## 📧 Contact
+## Contact
 
 For questions or feedback, please open an issue on GitHub.
 
 ---
 
-Built to detect waste and improve government contracting 🏛️
+Built to detect waste and improve government contracting.

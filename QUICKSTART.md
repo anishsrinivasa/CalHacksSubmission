@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
 ## Try It Now (Locally)
 
@@ -6,8 +6,8 @@ Your application is **already running** and ready to test!
 
 ### Current Status
 
-✅ **Backend**: Running at http://localhost:8000
-✅ **Frontend**: Running at http://localhost:3010
+**Backend**: Running at http://localhost:8000
+**Frontend**: Running at http://localhost:3010
 
 ### Test the Application
 
@@ -115,10 +115,10 @@ npm run dev
 
 ## Next Steps
 
-1. ✅ Test locally with sample SOW
-2. ✅ Verify all features work
-3. 🚀 Deploy to Railway and Vercel
-4. 🎉 Share your deployed URL!
+1. Test locally with sample SOW
+2. Verify all features work
+3. Deploy to Railway and Vercel
+4. Share your deployed URL!
 
 ---
 

@@ -67,13 +67,13 @@ This will:
 Expected output:
 ```
 Loading embedding model...
-✓ Embedding model loaded
+Embedding model loaded
 Creating new collection: sow_problematic_patterns
 Loaded 10 annotated examples
 Generating embeddings...
-✓ Added 10 examples to vector database
+Added 10 examples to vector database
 
-📊 Collection Stats:
+Collection Stats:
    Total examples: 10
    By issue type:
       - weak_kpi: 3
@@ -92,11 +92,11 @@ The backend will now use RAG analysis automatically. Logs will show:
 ```
 [1/3] Extracting data from file.pdf...
 [2/3] Searching for similar problematic patterns...
-🔍 Starting RAG-enhanced analysis...
+Starting RAG-enhanced analysis...
    Split into 5 chunks
    Analyzing chunk 1/5...
-✓ Found 3 validated issues
-[3/3] ✓ RAG analysis complete
+Found 3 validated issues
+[3/3] RAG analysis complete
 ```
 
 ### 4. Frontend (Already Running)
@@ -110,7 +110,7 @@ Frontend is already updated to display RAG results. Each finding will show:
 ├─────────────────────────────────────────────────────────┤
 │ "The contractor shall improve system uptime..."         │
 │                                                          │
-│ ⚠ Similar issue in DOE Cloud Services Contract (92%)   │
+│ Similar issue in DOE Cloud Services Contract (92%)   │
 │                                                          │
 │ What happened: Contractor claimed 98% uptime but        │
 │ government had no baseline to verify improvement.       │
@@ -183,10 +183,10 @@ For each match:
 ### 4. Frontend Display
 
 Results Dashboard shows:
-- 🔴 Severity badge (HIGH/MEDIUM/LOW)
-- 📊 Similarity score (70% - 95%)
-- 💰 Cost impact from real example
-- ✅ How to fix it
+- Severity badge (HIGH/MEDIUM/LOW)
+- Similarity score (70% - 95%)
+- Cost impact from real example
+- How to fix it
 
 ## Troubleshooting
 
@@ -277,12 +277,12 @@ embedding_model = SentenceTransformer('all-MiniLM-L6-v2')  # Fast, 384 dims
 
 ## Success Metrics
 
-✅ **Vector DB initialized** with 10 examples
-✅ **RAG analysis working** end-to-end
-✅ **Frontend displays** matched examples with cost impacts
-✅ **Similarity scores** show confidence (70-95%)
-✅ **Remediation guidance** provided for each issue
-✅ **Fallback to basic analysis** if RAG fails
+- **Vector DB initialized** with 10 examples
+- **RAG analysis working** end-to-end
+- **Frontend displays** matched examples with cost impacts
+- **Similarity scores** show confidence (70-95%)
+- **Remediation guidance** provided for each issue
+- **Fallback to basic analysis** if RAG fails
 
 ## Next Steps
 
@@ -292,4 +292,4 @@ embedding_model = SentenceTransformer('all-MiniLM-L6-v2')  # Fast, 384 dims
 4. Test with a sample SOW upload
 5. Verify RAG results in frontend
 
-**Ready to deploy by 11 PM!** 🚀
+**Ready to deploy by 11 PM!**
