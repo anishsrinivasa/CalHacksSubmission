@@ -121,12 +121,6 @@ export default function Home() {
               {!analysisResult && !isAnalyzing && (
                 <nav className="hidden md:flex items-center gap-6">
                   <button
-                    onClick={() => scrollToSection('upload')}
-                    className="text-sm text-govtech-text-secondary hover:text-govtech-text-primary transition-colors focus:outline-none focus-visible:outline-none active:outline-none"
-                  >
-                    Get Started
-                  </button>
-                  <button
                     onClick={() => scrollToSection('target')}
                     className="text-sm text-govtech-text-secondary hover:text-govtech-text-primary transition-colors focus:outline-none focus-visible:outline-none active:outline-none"
                   >

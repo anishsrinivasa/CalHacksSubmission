@@ -87,27 +87,30 @@ An AI-powered web application that analyzes SOW documents to:
 
 ```
 calhacks/
-├── backend/                 # FastAPI backend
-│   ├── main.py             # Main API server
-│   ├── sow_extractor.py    # Pass 1: Data extraction
-│   ├── risk_analyzer.py    # Pass 2: Risk analysis
-│   ├── requirements.txt    # Python dependencies
-│   ├── railway.json        # Railway deployment config
-│   └── .env.example        # Environment variable template
+├── main.py                  # FastAPI backend server
+├── sow_extractor.py         # Data extraction
+├── risk_analyzer.py         # Risk analysis
+├── rag_analyzer.py          # RAG-based overlap detection
+├── overlap_analyzer.py      # Overlap detection logic
+├── vector_db_setup.py       # Vector database initialization
+├── annotated_examples.json  # Training data for RAG
+├── requirements.txt         # Python dependencies
+├── railway.json             # Railway deployment config
+├── sample_nyserda_sow.txt   # Sample SOW for testing
 │
-├── frontend/               # Next.js frontend
+├── frontend/                # Next.js frontend
 │   ├── app/
-│   │   ├── page.tsx       # Main page
-│   │   ├── layout.tsx     # Root layout
-│   │   └── globals.css    # Global styles
+│   │   ├── page.tsx        # Main page
+│   │   ├── layout.tsx      # Root layout
+│   │   └── globals.css     # Global styles
 │   ├── components/
-│   │   ├── FileUpload.tsx      # Upload interface
-│   │   └── ResultsDashboard.tsx # Results display
-│   ├── package.json       # Node dependencies
-│   ├── next.config.js     # Next.js configuration
-│   └── vercel.json        # Vercel deployment config
+│   │   ├── FileUpload.tsx       # Upload interface
+│   │   ├── ResultsDashboard.tsx # Results display
+│   │   └── LoginModal.tsx       # Login interface
+│   ├── package.json        # Node dependencies
+│   └── next.config.js      # Next.js configuration
 │
-└── DEPLOYMENT.md          # Deployment guide
+└── chroma_db/              # Vector database storage
 ```
 
 ## 🔧 Local Development
@@ -121,20 +124,17 @@ calhacks/
 ### Backend Setup
 
 ```bash
-cd backend
-
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
 # Install dependencies
 pip install -r requirements.txt
 
 # Create .env file
 echo "ANTHROPIC_API_KEY=your-key-here" > .env
 
+# Initialize vector database
+python vector_db_setup.py
+
 # Run server
-uvicorn main:app --reload --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 Backend will be available at: http://localhost:8000
@@ -184,12 +184,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Test with Sample SOW
 
-```bash
-cd backend
-# Sample NYSERDA SOW included in sample_nyserda_sow.txt
-```
-
-Upload this file through the UI or test API directly:
+Upload the included `sample_nyserda_sow.txt` file through the UI or test API directly:
 
 ```bash
 curl -X POST http://localhost:8000/api/analyze \

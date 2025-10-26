@@ -7,17 +7,17 @@ Your application is **already running** and ready to test!
 ### Current Status
 
 ✅ **Backend**: Running at http://localhost:8000
-✅ **Frontend**: Running at http://localhost:3000
+✅ **Frontend**: Running at http://localhost:3010
 
 ### Test the Application
 
 1. **Open your browser**
    ```
-   http://localhost:3000
+   http://localhost:3010
    ```
 
 2. **Upload a sample SOW**
-   - Use the sample file: `backend/sample_nyserda_sow.txt`
+   - Use the sample file: `sample_nyserda_sow.txt`
    - Or drag & drop any PDF/DOCX/TXT SOW document
    - Max file size: 10MB
 
@@ -58,7 +58,7 @@ curl http://localhost:8000/
 
 # Analyze a file
 curl -X POST http://localhost:8000/api/analyze \
-  -F "file=@backend/sample_nyserda_sow.txt"
+  -F "file=@sample_nyserda_sow.txt"
 ```
 
 ## Deploy to Production
@@ -77,14 +77,13 @@ Once you're happy with local testing:
 2. **Deploy Backend to Railway**
    - Visit https://railway.app/new
    - Connect your GitHub repo
-   - Select `backend` folder
    - Add `ANTHROPIC_API_KEY` environment variable
    - Deploy → Copy backend URL
 
 3. **Deploy Frontend to Vercel**
    - Visit https://vercel.com/new
    - Connect your GitHub repo
-   - Select `frontend` folder
+   - Set root directory to `frontend`
    - Add `NEXT_PUBLIC_API_URL` = your Railway URL
    - Deploy
 
@@ -94,10 +93,8 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
 ### Backend won't start
 ```bash
-cd backend
-source venv/bin/activate  # Activate virtual environment
 pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Frontend won't start
@@ -109,7 +106,7 @@ npm run dev
 
 ### "Analysis failed" error
 - Check that backend is running (http://localhost:8000/)
-- Verify ANTHROPIC_API_KEY is set in `backend/.env`
+- Verify ANTHROPIC_API_KEY is set in `.env`
 - Check that API key has credits remaining
 
 ### CORS errors
