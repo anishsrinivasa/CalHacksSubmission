@@ -287,7 +287,7 @@ MIT License - see LICENSE file for details
 
 ## Acknowledgments
 
-- Built with [Claude AI](https://anthropic.com) by Anthropic
+- Built using assistance from [Claude AI](https://anthropic.com) by Anthropic for certain analysis function(s)
 - Frontend powered by [Next.js](https://nextjs.org)
 - Backend powered by [FastAPI](https://fastapi.tiangolo.com)
 - Deployed on [Railway](https://railway.app) and [Vercel](https://vercel.com)
