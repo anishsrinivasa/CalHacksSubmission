@@ -23,11 +23,11 @@ Analyze for the following issues:
 
 1. WEAK OR UNMEASURABLE KPIs
 Check each KPI/performance metric for:
-- ❌ Missing baseline (e.g., "improve satisfaction" but no current score)
-- ❌ Missing target (e.g., "increase uptime" but no percentage goal)
-- ❌ Missing timeframe (e.g., "reduce wait times" but no deadline)
-- ❌ Missing measurement method (e.g., "improve satisfaction" but no survey/tool specified)
-- ❌ Vague language (e.g., "enhance", "improve", "optimize", "target levels", "acceptable", "reasonable" without specifics)
+- [X] Missing baseline (e.g., "improve satisfaction" but no current score)
+- [X] Missing target (e.g., "increase uptime" but no percentage goal)
+- [X] Missing timeframe (e.g., "reduce wait times" but no deadline)
+- [X] Missing measurement method (e.g., "improve satisfaction" but no survey/tool specified)
+- [X] Vague language (e.g., "enhance", "improve", "optimize", "target levels", "acceptable", "reasonable" without specifics)
 
 For each weak KPI:
 - Severity: HIGH (completely unmeasurable) / MEDIUM (partially measurable) / LOW (minor gaps)
@@ -189,10 +189,10 @@ def analyze_sow(extracted_data: dict, model: str = "claude-3-haiku-20240307") ->
     # Parse JSON response
     try:
         analysis = json.loads(json_text)
-        print(f"✓ Analysis complete")
+        print(f"[OK] Analysis complete")
         return analysis
     except json.JSONDecodeError as e:
-        print(f"✗ JSON parsing failed: {e}")
+        print(f"[ERROR] JSON parsing failed: {e}")
         print(f"Hint: Check if Claude used nested quotes in text values")
         raise
 
@@ -232,38 +232,38 @@ def print_summary(analysis: dict):
     medium = sum(1 for f in all_findings if f.get('severity') == 'MEDIUM')
     low = sum(1 for f in all_findings if f.get('severity') == 'LOW')
 
-    print(f"\n📊 Total Findings: {len(all_findings)}")
-    print(f"   🔴 HIGH:   {high}")
-    print(f"   🟡 MEDIUM: {medium}")
-    print(f"   🟢 LOW:    {low}")
+    print(f"\n[SUMMARY] Total Findings: {len(all_findings)}")
+    print(f"   [HIGH]:   {high}")
+    print(f"   [MEDIUM]: {medium}")
+    print(f"   [LOW]:    {low}")
 
     # Weak KPIs
     weak_kpis = analysis.get('weak_kpis', [])
     if weak_kpis:
-        print(f"\n⚠️  WEAK KPIs ({len(weak_kpis)} found):")
+        print(f"\n[WARNING] WEAK KPIs ({len(weak_kpis)} found):")
         for kpi in weak_kpis[:3]:  # Show first 3
             text = kpi.get('text', kpi.get('kpi_text', ''))[:60]
-            print(f"   • [{kpi['severity']}] {text}...")
+            print(f"   - [{kpi['severity']}] {text}...")
             print(f"     Missing: {', '.join(kpi.get('missing', []))}")
 
     # Scope Creep
     scope_creep = analysis.get('scope_creep', [])
     if scope_creep:
-        print(f"\n⚠️  SCOPE CREEP LANGUAGE ({len(scope_creep)} found):")
+        print(f"\n[WARNING] SCOPE CREEP LANGUAGE ({len(scope_creep)} found):")
         for sc in scope_creep[:3]:  # Show first 3
-            print(f"   • [{sc['severity']}] \"{sc['text'][:50]}...\" ({sc['location']})")
+            print(f"   - [{sc['severity']}] \"{sc['text'][:50]}...\" ({sc['location']})")
 
     # Missing Elements
     missing = analysis.get('missing_elements', [])
     if missing:
-        print(f"\n⚠️  MISSING ELEMENTS ({len(missing)} found):")
+        print(f"\n[WARNING] MISSING ELEMENTS ({len(missing)} found):")
         for elem in missing[:3]:
-            print(f"   • [{elem['severity']}] {elem['element']}")
+            print(f"   - [{elem['severity']}] {elem['element']}")
 
     # Red Flags
     red_flags = analysis.get('red_flags', [])
     if red_flags:
-        print(f"\n🚩 RED FLAGS ({len(red_flags)} found):")
+        print(f"\n[CRITICAL] RED FLAGS ({len(red_flags)} found):")
         for flag in red_flags[:3]:
             print(f"   • [{flag['severity']}] {flag['flag']}")
 
@@ -292,7 +292,7 @@ if __name__ == "__main__":
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(analysis, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✓ Analysis saved to: {output_file}")
+    print(f"\n[OK] Analysis saved to: {output_file}")
 
     # Print summary
     print_summary(analysis)

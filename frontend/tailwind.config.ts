@@ -9,18 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+        // Dark Theme - Vercel Style
+        govtech: {
+          'bg': '#000000',             // Pure black background
+          'card': '#0a0a0a',           // Very dark gray cards
+          'primary': '#ffffff',        // White for primary elements
+          'primary-hover': '#e5e5e5',  // Slightly dimmed white on hover
+          'secondary': '#3b82f6',      // Blue accent
+          'text-primary': '#ffffff',   // White text
+          'text-secondary': '#a1a1aa', // Light gray text
+          'text-muted': '#71717a',     // Muted gray text
+          'border': '#27272a',         // Dark border
         },
+        // Unified severity colors
+        severity: {
+          'critical': '#ef4444',       // Bright red
+          'high': '#f59e0b',           // Amber
+          'medium': '#3b82f6',         // Blue
+          'low': '#10b981',            // Green
+        }
       },
     },
   },

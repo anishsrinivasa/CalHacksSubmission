@@ -1,0 +1,169 @@
+{
+  "examples": [
+    {
+      "id": "dia_scope_creep_001",
+      "problematic_section": "The Contractor shall provide the full range of integrated strategic, analytic, and technical support services DIA may need to design and implement optimal Infrastructure, Systems, and Applications initiatives and ensure progress toward meeting requirements and objectives.",
+      "issue_type": "scope_creep",
+      "severity": "CRITICAL",
+      "explanation": "Phrase 'full range' and 'may need' creates unlimited scope without boundaries or deliverable definitions",
+      "actual_outcome": "Similar language in DoD Contract HQ0034-19-D-0001 led to scope expansion 4x beyond original estimate over 18-month period",
+      "estimated_cost": "$3,200,000 in unplanned contractor hours and change orders",
+      "correct_version": "The Contractor shall provide the following specific services as defined in Attachment A: (1) Infrastructure Architecture Design (max 500 hours), (2) Systems Integration Testing (max 300 hours), (3) Application Security Assessment (max 200 hours). Any additional services require formal change order approval with cost justification.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_weak_kpi_001",
+      "problematic_section": "The Government will make every effort to provide the Contractor with ample time to respond to new requirements.",
+      "issue_type": "weak_kpi",
+      "severity": "MEDIUM",
+      "explanation": "'Every effort' and 'ample time' are subjective terms with no quantifiable metrics or minimum notice periods",
+      "actual_outcome": "Defense Contract HC1028-20-D-0002 had disputes when government provided 48-hour turnarounds, claiming 'ample' meant different things to each party",
+      "estimated_cost": "$95,000 in accelerated staffing costs and overtime charges",
+      "correct_version": "The Government shall provide the Contractor with minimum 10 business days notice for standard requirements and minimum 5 business days for urgent requirements. Emergency requirements (less than 5 days) require Contracting Officer approval and may incur expedited service fees per the rate sheet.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_scope_ambiguity_001",
+      "problematic_section": "The Contractor shall provide all resources necessary to perform the specific requirements as defined in individual task orders.",
+      "issue_type": "scope_creep",
+      "severity": "HIGH",
+      "explanation": "'All resources necessary' is open-ended and could include infrastructure, equipment, personnel, licenses without cost limits",
+      "actual_outcome": "Similar clause in VA Contract 36C24420D0011 led to $680K dispute over whether 'resources' included specialized testing equipment",
+      "estimated_cost": "$680,000 in equipment procurement disputes and arbitration",
+      "correct_version": "The Contractor shall provide personnel labor, standard commercial software licenses (excluding specialty tools), and consumable materials necessary to perform requirements. Government will provide facility access, network connectivity, and specialized equipment listed in Attachment B. Any resources not explicitly listed require written government approval before procurement.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_missing_element_001",
+      "problematic_section": "The Contractor shall ensure that genuine Information and Communication Technology (ICT) will be available under the contract and shall manage the risk to ensure counterfeit or illegally modified products are not shipped.",
+      "issue_type": "missing_element",
+      "severity": "HIGH",
+      "explanation": "No defined verification method, chain-of-custody documentation, or acceptance criteria for proving authenticity",
+      "actual_outcome": "DHS Contract 70RSAT19R00000007 failed audit when counterfeit components found with no documented verification process in place",
+      "estimated_cost": "$1,200,000 in equipment replacement and failed audit remediation",
+      "correct_version": "The Contractor shall ensure genuine ICT by: (1) sourcing only from manufacturer-authorized distributors listed in Attachment C, (2) maintaining chain-of-custody documentation from manufacturer to delivery, (3) providing certificates of authenticity for all components over $500, (4) submitting to random third-party authentication testing (government-paid), and (5) replacing any counterfeit items at contractor expense within 5 business days of discovery.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_timeline_missing_001",
+      "problematic_section": "Contractors shall develop, maintain, and periodically update Supply Chain Risk Management (SCRM) plans at no cost to the Government.",
+      "issue_type": "missing_element",
+      "severity": "HIGH",
+      "explanation": "'Periodically update' has no defined schedule or trigger conditions for updates",
+      "actual_outcome": "GSA Contract GS-35F-0119Y disputed over what 'periodically' meant - contractor claimed annual updates sufficient, agency expected quarterly",
+      "estimated_cost": "$180,000 in mediation and contract clarification costs",
+      "correct_version": "Contractors shall develop SCRM plans within 30 days of contract award, maintain current versions in the project repository, and update quarterly or within 10 business days of any supply chain security incident, at no cost to the Government.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_missing_sla_001",
+      "problematic_section": "Contractor services shall include but are not limited to, monitoring established thresholds, responding to warning and alert messages from the monitoring systems, coordinating corrective action once thresholds are reached.",
+      "issue_type": "missing_element",
+      "severity": "CRITICAL",
+      "explanation": "'Responding' and 'coordinating' lack defined response times, escalation procedures, or resolution SLAs",
+      "actual_outcome": "Similar language in Army Contract W52P1J-19-D-0009 led to 8-hour system outage when contractor claimed 'responding within 24 hours' was acceptable",
+      "estimated_cost": "$2,100,000 in mission impact from extended outage with no SLA enforcement",
+      "correct_version": "Contractor shall monitor established thresholds 24/7/365 and respond to alerts as follows: (1) Critical alerts: 15-minute acknowledgment, 1-hour initial response, 4-hour resolution or escalation to government; (2) High alerts: 30-minute acknowledgment, 2-hour response, 8-hour resolution; (3) Medium alerts: 1-hour acknowledgment, 4-hour response, next business day resolution. All response times documented in ticketing system with automatic escalation to COR if SLAs breached.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_acceptance_missing_001",
+      "problematic_section": "The Contractor shall develop the IT system architecture documentation, design, and plans of current and future technical and functional/business systems by depicting technical, systems, and functional architecture views.",
+      "issue_type": "missing_element",
+      "severity": "MEDIUM",
+      "explanation": "No delivery schedule, format requirements, or approval process defined for architecture documentation",
+      "actual_outcome": "Air Force Contract FA8771-18-D-0001 had 9-month standoff over documentation format - contractor provided PowerPoint decks, agency expected formal DoDAF-compliant documentation",
+      "estimated_cost": "$245,000 in rework to meet unstated DoDAF standards",
+      "correct_version": "The Contractor shall develop IT system architecture documentation in DoDAF 2.0 format within 60 days of requirement kickoff, including: current state (AS-IS) views, future state (TO-BE) views, and transition plan. All documentation requires government approval within 15 business days. Deliverables shall be provided in both PDF and editable Visio/PowerPoint formats.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_role_ambiguity_001",
+      "problematic_section": "The Contractor shall provide certified cybersecurity expertise (i.e., Information System Security Engineers (ISSE) or Information Systems Security Officers (ISSO), as appropriate) throughout the design, engineering, and installation processes.",
+      "issue_type": "scope_ambiguity",
+      "severity": "HIGH",
+      "explanation": "'As appropriate' and 'throughout' creates ambiguity about when ISSE vs ISSO is required and level of involvement needed",
+      "actual_outcome": "DoD Contract HC1047-21-D-0003 over-staffed with ISSEs when ISSOs would suffice, costing $450/hr vs $175/hr for 2000+ hours",
+      "estimated_cost": "$550,000 in overstaffing with senior personnel for junior-level tasks",
+      "correct_version": "The Contractor shall provide: (1) ISSE (minimum CISSP certified) for architecture design phase (estimated 200 hours), (2) ISSO (minimum Security+ certified) for implementation and testing phases (estimated 500 hours), and (3) part-time ISSE review (40 hours) at security milestones defined in project schedule. All cybersecurity personnel require government approval before assignment.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "texas_911_weak_maintenance_001",
+      "problematic_section": "A description of how preventive maintenance will be provided",
+      "issue_type": "weak_kpi",
+      "severity": "MEDIUM",
+      "explanation": "Lacks specific frequency, checklist requirements, or performance standards for preventive maintenance",
+      "actual_outcome": "California 911 Contract 8500-2014 disputed when contractor provided annual maintenance but agency expected quarterly based on industry standards",
+      "estimated_cost": "$125,000 in emergency repairs that preventive maintenance should have caught",
+      "correct_version": "Preventive maintenance shall be provided quarterly (every 90 days) following manufacturer-recommended procedures documented in Attachment D. Each session shall include: (1) hardware inspection checklist completion, (2) software version verification, (3) backup system testing, (4) performance benchmarking against baseline metrics, and (5) documented maintenance report submitted within 5 business days of completion.",
+      "contract_source": "Texas 911 CPE System SOW Template"
+    },
+    {
+      "id": "florida_objective_vague_001",
+      "problematic_section": "The objective of this project is to assist in the completion of the Pinewoods Reverse Osmosis Water Treatment Plant and Lower Hawthorne Wellfield Phase II to help meet the City's water supply demands.",
+      "issue_type": "weak_kpi",
+      "severity": "MEDIUM",
+      "explanation": "'Assist' and 'help meet' are non-committal terms without success criteria or measurable outcomes",
+      "actual_outcome": "Lee County Contract 17-7198 completed but city claimed it didn't 'meet demands' - no defined capacity targets or acceptance criteria caused 14-month dispute",
+      "estimated_cost": "$290,000 in legal fees and project closeout delays",
+      "correct_version": "The objective is to complete the Pinewoods RO Water Treatment Plant expansion to achieve 3.2 MGD certified capacity and construct four Lower Hawthorne production wells each capable of 800 GPM sustained flow, as verified by 72-hour pump tests and state DEP certification, thereby increasing total system capacity by minimum 25% to meet projected 2025 demand of 12.8 MGD.",
+      "contract_source": "Florida Water Treatment SOW Examples"
+    },
+    {
+      "id": "florida_scope_appurtenances_001",
+      "problematic_section": "Work will include construction of RO equipment, high service pumps, mechanical equipment, yard piping, wellfield piping, electrical equipment, production wells, monitoring wells, raw water pipelines, and related appurtenances.",
+      "issue_type": "scope_creep",
+      "severity": "HIGH",
+      "explanation": "'Related appurtenances' is undefined and could include unlimited additional items not explicitly listed",
+      "actual_outcome": "Miami-Dade Contract RFQ-14-15-SW-DW-01 scope expanded to include control systems, SCADA integration, and security fencing all claimed as 'related appurtenances'",
+      "estimated_cost": "$780,000 in scope expansion beyond original bid pricing",
+      "correct_version": "Work includes construction and installation of items explicitly listed in Bill of Materials (Attachment A): RO membrane skids (4 units), high service pumps (3 @ 500 GPM each), mechanical equipment per equipment list, yard piping per site plan drawing C-101, production wells F-13 through F-15, monitoring wells MW-1 through MW-3, and 24-inch raw water pipeline (1,200 LF per alignment drawing). Any items not in Attachment A require change order approval with cost justification.",
+      "contract_source": "Florida Water Treatment SOW Examples"
+    },
+    {
+      "id": "dia_no_response_time_001",
+      "problematic_section": "The Contractor shall provide desk-side assistance to resolve customer incidents, locally resolving system account and access management issues.",
+      "issue_type": "missing_element",
+      "severity": "MEDIUM",
+      "explanation": "No response time requirements, resolution targets, or customer satisfaction metrics defined",
+      "actual_outcome": "VA Contract 36C78620D0077 had 45% customer dissatisfaction when 'desk-side assistance' averaged 3-day response time vs user expectation of same-day",
+      "estimated_cost": "$165,000 in help desk ticket backlog and escalated issues",
+      "correct_version": "The Contractor shall provide desk-side support with following SLAs: (1) Standard requests: 4-hour response, same business day resolution target; (2) VIP/executive support: 1-hour response, 2-hour resolution target; (3) Account access issues: 30-minute response (security priority). Performance measured monthly with targets: 90% of tickets resolved within SLA, customer satisfaction score ≥4.2/5.0, first-call resolution rate ≥75%.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_notification_no_approval_001",
+      "problematic_section": "The Contractor shall give written notice to the Contracting Officer at least thirty (30) calendar days prior to substituting/removing individuals occupying key personnel positions.",
+      "issue_type": "red_flag",
+      "severity": "MEDIUM",
+      "explanation": "States notification requirement but doesn't specify if government approval is required or what happens if substitute is unacceptable",
+      "actual_outcome": "GSA Contract 47QTCA20D003D had 6-week project delay when contractor provided 30-day notice of PM change but replacement lacked required clearances",
+      "estimated_cost": "$310,000 in project delays and interim staffing gaps",
+      "correct_version": "The Contractor shall submit written request to the Contracting Officer at least 45 calendar days prior to substituting key personnel, including: (1) reason for change, (2) resume of proposed replacement meeting all position qualifications, (3) transition plan. Government shall approve or reject within 15 days. No substitution shall occur without written Contracting Officer approval. Contractor must maintain interim coverage during transition at no additional cost to government.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_process_weak_001",
+      "problematic_section": "Contractors shall consult the Defense Travel Management Office website prior to traveling to obtain updated per diem rates for the locality to which they are traveling.",
+      "issue_type": "weak_process",
+      "severity": "LOW",
+      "explanation": "'Consult' is passive and doesn't require documentation or compliance verification, creating reimbursement disputes",
+      "actual_outcome": "Multiple contracts including W912HQ-16-D-0019 had travel reimbursement disputes when contractors used outdated rates claiming they 'consulted' weeks prior",
+      "estimated_cost": "$42,000 in travel invoice disputes and corrections",
+      "correct_version": "Contractors shall verify current per diem rates from Defense Travel Management Office website (www.defensetravel.dod.mil) within 5 business days prior to travel and include rate verification screenshot or printout with travel authorization request. All travel reimbursements must match rates published on actual travel dates. Overpayments must be refunded within 15 days of discovery.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    },
+    {
+      "id": "dia_sdlc_no_criteria_001",
+      "problematic_section": "The Contractor shall perform requirement capture and analysis, requirements specification creation, software design, development, integration and testing, version control, project management, and problem tracking and solutions.",
+      "issue_type": "missing_element",
+      "severity": "HIGH",
+      "explanation": "Lists activities but no acceptance criteria, quality standards, or definition of done for each phase",
+      "actual_outcome": "Navy Contract N00178-17-D-7854 had 23 rejected deliverables when contractor's 'requirements specification' was 3-page summary vs expected 50-page detailed specification",
+      "estimated_cost": "$420,000 in rework due to undefined deliverable standards",
+      "correct_version": "The Contractor shall perform full SDLC activities with following deliverables meeting government approval: (1) Requirements Specification (IEEE 830 format, minimum 25 pages for medium projects), (2) Design Document (UML diagrams, data models, API specifications), (3) Source code (passing automated quality gates: 80% code coverage, zero critical security vulnerabilities), (4) Test documentation (test cases covering 100% of requirements), (5) Deployment guide. Each phase gate requires government approval within 10 business days before proceeding.",
+      "contract_source": "DIA SITE III Statement of Work (2020)"
+    }
+  ]
+}

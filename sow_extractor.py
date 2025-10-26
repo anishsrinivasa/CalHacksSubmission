@@ -192,15 +192,51 @@ def extract_sow_data(document_text: str, model: str = "claude-3-haiku-20240307")
 
     response_text = message.content[0].text
 
-    # Parse JSON response
+    # Parse JSON response - handle cases where Claude adds explanatory text before/after JSON
     try:
+        # Try direct parsing first
         extracted_data = json.loads(response_text)
-        print(f"✓ Extraction successful")
+        print(f"[OK] Extraction successful")
         return extracted_data
     except json.JSONDecodeError as e:
-        print(f"✗ JSON parsing failed: {e}")
-        print(f"Response: {response_text[:500]}...")
-        raise
+        # If direct parsing fails, try to extract JSON from the response
+        print(f"[ERROR] Direct JSON parsing failed, attempting to extract JSON from response...")
+
+        # Look for JSON object in the response by finding matching braces
+        json_start = response_text.find('{')
+
+        if json_start == -1:
+            print(f"[ERROR] Could not find JSON in response")
+            print(f"Response: {response_text[:500]}...")
+            raise
+
+        # Count braces to find the matching closing brace
+        brace_count = 0
+        json_end = -1
+
+        for i in range(json_start, len(response_text)):
+            if response_text[i] == '{':
+                brace_count += 1
+            elif response_text[i] == '}':
+                brace_count -= 1
+                if brace_count == 0:
+                    json_end = i
+                    break
+
+        if json_end != -1:
+            json_str = response_text[json_start:json_end + 1]
+            try:
+                extracted_data = json.loads(json_str)
+                print(f"[OK] Extraction successful after JSON extraction")
+                return extracted_data
+            except json.JSONDecodeError as e2:
+                print(f"[ERROR] JSON extraction also failed: {e2}")
+                print(f"Response: {response_text[:500]}...")
+                raise
+        else:
+            print(f"[ERROR] Could not find matching closing brace")
+            print(f"Response: {response_text[:500]}...")
+            raise
 
 
 def extract_from_file(file_path: str) -> dict:
@@ -235,7 +271,14 @@ def extract_from_file(file_path: str) -> dict:
         raise ValueError(f"Unsupported file type: {file_path}")
 
     print(f"\nProcessing: {file_path}")
-    return extract_sow_data(document_text)
+
+    # Extract structured data
+    extracted_data = extract_sow_data(document_text)
+
+    # Add raw text for RAG analysis
+    extracted_data['raw_text'] = document_text
+
+    return extracted_data
 
 
 if __name__ == "__main__":
@@ -261,8 +304,8 @@ if __name__ == "__main__":
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(extracted, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✓ Extraction complete!")
-    print(f"✓ Results saved to: {output_file}")
+    print(f"\n[OK] Extraction complete!")
+    print(f"[OK] Results saved to: {output_file}")
 
     # Print summary
     print(f"\n--- Summary ---")
